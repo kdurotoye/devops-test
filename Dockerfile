@@ -1,18 +1,12 @@
 FROM node:15.13.0-slim
+LABEL maintainer="Kanmi Durotoye"
 
 RUN mkdir /app
 
-COPY package.json package.json
+WORKDIR /app/
 
-# RUN npm install
+COPY . .
 
-# COPY . .
-
-LABEL maintainer="Kanmi Durotoye"
-
-# CMD node index.js
-
-
-RUN npm install
+RUN npm install npm@7.10.0
 
 ENTRYPOINT npm run start
